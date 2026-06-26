@@ -135,10 +135,26 @@ class Student() :
 
 #=====================================================================================================#
 #===============================================Deleting Details=====================================#
-                    
-            
-        
+    def delete(self):
+        grade=input("Enter class:- ")
+        roll=input("Enter roll no. :- ")
 
+        userdata=[i for i in Student.data if i['Roll_No']==roll  and i['Class']==grade]   # if data exist then data will load to this list and if not present the it will be empty
+        if not userdata :
+            print("Student Not Found")
+        else :
+            confirm=input("Enter 'y' for yes and 'n' for no :- " )
+            if confirm=='y' :
+                index=Student.data.index(userdata[0])
+                Student.data.pop(index)
+                Student.__update() 
+                print("Student details deleted successfully")
+            else :
+                print("You choose NO")
+
+    
+
+    
 user=Student()
 
 #===========================================================================#
