@@ -44,13 +44,21 @@ class Student() :
 
 #=====================================================================================================#
 #===============================================Details veiw==========================================#
+    def details(self):
 
+        grade=int(input("Enter class:- "))
+        roll=int(input("Enter roll no. :- "))
 
+        userdata=[i for i in Student.data if i['Roll_No']==roll  and i['Class']==grade]   # if data exist then data will load to this list and if not present the it will be empty
 
-    
-
-
-
+        if not userdata :
+            print("Student Not Found")
+        else :
+            print("")
+            print("===========STUDENT DETAILS========")
+            for i in userdata[0] :
+                print(f"{i} : {userdata[0][i]}")
+        
 
 user=Student()
 
